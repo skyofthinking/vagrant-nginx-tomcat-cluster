@@ -1,0 +1,20 @@
+#!/bin/bash
+# Tomcat auto-start
+# description: Auto-starts tomcat
+# processname: tomcat
+# pidfile: /var/run/tomcat.pid
+# JAVA_HOME
+export JAVA_HOME=/home/vagrant/Java7
+case $1 in
+start)
+    sh /home/vagrant/apache-tomcat-7.0.62/bin/startup.sh
+    ;;
+stop)
+    sh /home/vagrant/apache-tomcat-7.0.62/bin/shutdown.sh
+    ;;
+restart)
+    sh /home/vagrant/apache-tomcat-7.0.62/bin/shutdown.sh
+    sh /home/vagrant/apache-tomcat-7.0.62/bin/startup.sh
+    ;;
+esac
+exit 0
